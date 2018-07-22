@@ -16,6 +16,7 @@ class Item extends React.Component {
               ref={provided.innerRef}
               {...provided.dragHandleProps}
               {...provided.draggableProps}
+              className="item"
             >
             {this.props.id}
             </div>

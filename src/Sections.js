@@ -20,10 +20,10 @@ class Section extends React.Component {
           <div
             ref={provided.innerRef}
             {...provided.draggableProps}
-            className="section-body"
+            className="section"
           >
             <div className="section-draghandle" {...provided.dragHandleProps}>
-              dragHandle
+              {this.props.id}
             </div>
             <DroppableSection
               items={this.props.items}

@@ -12,12 +12,12 @@
   margin-top: 10px;
 }
 
-.list-dranghandle:hover {
+/* .list-dranghandle:hover {
   opacity: 0.8;
 }
 .list-draghandle-dragging {
   opacity: 0.8;
-}
+} */
 
 .list-body {
   min-height: 200px;
@@ -39,6 +39,9 @@
   color: #f2c5de;
   padding: 10px;
 }
-.section-body {
+.section {
   background-color: #f2c5de;
+}
+.section-body {
+  padding: 20px 0px;
 }
