@@ -3,3 +3,26 @@
   width: 30px;
   background-color: red;
 }
+
+.list-draghandle {
+  background-color: #004400;
+  color: #C5F2C5;
+  transition: all 0.5s;
+  padding: 10px;
+  margin-top:10px;
+}
+
+.list-dranghandle:hover {
+  opacity: 0.8;
+}
+.list-draghandle-dragging {
+  opacity:0.8;
+}
+
+.list-body {
+  background-color: #C5F2C5;
+  min-height: 200px;
+}
+.list-dragging {
+  background-color: #2f4172;
+}

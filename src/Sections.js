@@ -14,6 +14,7 @@ class Section extends React.Component {
         draggableId={`draggable-${this.props.id}`}
         index={this.props.index}
         key={this.props.id}
+        type={"SECTION"}
       >
         {(provided, snapshot) => (
           <div

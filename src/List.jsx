@@ -1,35 +1,48 @@
-import React from 'react';
-import Section from './Sections';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import React from "react";
+import Section from "./Sections";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 class List extends React.Component {
-  getListStyle(snapshot) {
-    return {
-      backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey',
-      minHeight: 200
-    };
+  getListClasses(snapshot) {
+    const draggingClass = snapshot.isDragging ? "list-dragging" : "";
+    return `list-body ${draggingClass}`;
   }
+  getDragHandleClasses(snapshot) {
+    const draggingClass = snapshot.isDragging ? "list-draghandle-dragging" : "";
+    return `list-draghandle ${draggingClass}`;
+  }
+
   render() {
     return (
       <Draggable
         draggableId={`draggable-${this.props.id}`}
         index={this.props.index}
         key={this.props.id}
+        type={"LIST"}
       >
-        {(provided, snapshot) => {
+        {(draggableprovided, draggableSnapshot) => {
           return (
-            <div>
+            <div
+              {...draggableprovided.draggableProps}
+              ref={draggableprovided.innerRef}
+            >
               <div
-                ref={provided.innerRef}
-                {...provided.draggableProps}
-                {...provided.dragHandleProps}
-              >hi</div>
-              <Droppable droppableId={this.props.id} key={this.props.id}>
+                className={this.getDragHandleClasses(draggableSnapshot)}
+                {...draggableprovided.dragHandleProps}
+              >
+                LIST NAME: {this.props.id}
+              </div>
+              <Droppable
+                droppableId={this.props.id}
+                key={this.props.id}
+                key={this.props.id}
+                type="SECTION"
+              >
                 {(provided, snapshot) => {
                   return (
                     <div
                       ref={provided.innerRef}
-                      style={this.getListStyle(snapshot)}
+                      className={this.getListClasses(draggableSnapshot)}
                       {...provided.droppableProps}
                     >
                       {this.props.listSections.map((item, index) => {
@@ -47,7 +60,6 @@ class List extends React.Component {
                   );
                 }}
               </Droppable>
-              <div style={{ height: 100 }} />
             </div>
           );
         }}

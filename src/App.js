@@ -31,7 +31,7 @@ class App extends React.Component {
   onDragEnd = result => {
     // const nextState = { ...this.state };
     // const { destination, source } = result;
-    // console.log(result);
+    console.log(result);
     // const sourceList = [...this.state[source.droppableId]];
     // const destinationList = [...this.state[destination.droppableId]];
     // const [removed] = sourceList.splice(source.index, 1);
@@ -52,12 +52,12 @@ class App extends React.Component {
         onDragUpdate={this.onDragUpdate}
         onDragEnd={this.onDragEnd}
       >
-        <Droppable droppableId={'lists-Droppable'}>
+        <Droppable droppableId={'lists-Droppable'} type="LIST">
           {(provided, snapshot) => {
             return (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {this.state.listsOrder.map((listId, index) => {
-                  return <List id={listId} listSections={this.state[listId]} />;
+                  return <List id={listId} listSections={this.state[listId]} index={index} />;
                 })}
               </div>
             );
