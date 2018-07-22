@@ -29,20 +29,20 @@ class App extends React.Component {
     console.log('dragging ... ');
   };
   onDragEnd = result => {
-    const nextState = { ...this.state };
-    const { destination, source } = result;
-    console.log(result);
-    const sourceList = [...this.state[source.droppableId]];
-    const destinationList = [...this.state[destination.droppableId]];
-    const [removed] = sourceList.splice(source.index, 1);
-    if (destination.droppableId === source.droppableId) {
-      sourceList.splice(destination.index, 0, removed);
-    } else {
-      destinationList.splice(destination.index, 0, removed);
-      nextState[destination.droppableId] = destinationList;
-    }
-    nextState[source.droppableId] = sourceList;
-    this.setState(nextState);
+    // const nextState = { ...this.state };
+    // const { destination, source } = result;
+    // console.log(result);
+    // const sourceList = [...this.state[source.droppableId]];
+    // const destinationList = [...this.state[destination.droppableId]];
+    // const [removed] = sourceList.splice(source.index, 1);
+    // if (destination.droppableId === source.droppableId) {
+    //   sourceList.splice(destination.index, 0, removed);
+    // } else {
+    //   destinationList.splice(destination.index, 0, removed);
+    //   nextState[destination.droppableId] = destinationList;
+    // }
+    // nextState[source.droppableId] = sourceList;
+    // this.setState(nextState);
   };
 
   render() {
