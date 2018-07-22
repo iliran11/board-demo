@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "./Sections";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 class List extends React.Component {
   getListClasses(snapshot) {
@@ -35,7 +35,6 @@ class List extends React.Component {
               </div>
               <Droppable
                 droppableId={this.props.id}
-                key={this.props.id}
                 key={this.props.id}
                 type="SECTION"
               >

@@ -1,8 +1,8 @@
 import React from "react";
 import List from "./List";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import "./App.css";
-import {itemResort} from './draghelpers'
+import { itemResort } from "./draghelpers";
 
 let itemsOffset = 0;
 
@@ -33,7 +33,7 @@ class App extends React.Component {
   onDragEnd = result => {
     // const nextState = { ...this.state };
     // const { destination, source } = result;
-    itemResort(result,this.state)
+    itemResort(result, this.state);
     // const sourceList = [...this.state[source.droppableId]];
     // const destinationList = [...this.state[destination.droppableId]];
     // const [removed] = sourceList.splice(source.index, 1);

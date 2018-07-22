@@ -1,5 +1,5 @@
 import React from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 import DroppableSection from "./droppableSection";
 class Section extends React.Component {
   getSectionStyle(snapshot) {

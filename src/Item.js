@@ -1,5 +1,5 @@
 import React from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
 class Item extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class Item extends React.Component {
               {...provided.draggableProps}
               className="item"
             >
-            {this.props.id}
+              {this.props.id}
             </div>
           );
         }}
