@@ -51,6 +51,7 @@ class List extends React.Component {
                             id={section.id}
                             content={section.content}
                             index={index}
+                            key={index}
                             items={section.items}
                           />
                         );

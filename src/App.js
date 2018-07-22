@@ -64,6 +64,7 @@ class App extends React.Component {
                       id={listId}
                       listSections={this.state[listId]}
                       index={index}
+                      key={index}
                     />
                   );
                 })}
@@ -81,7 +82,6 @@ export default App;
 
 const getItems = (count = 0) => {
   itemsOffset += 10;
-  console.log(itemsOffset);
   return Array.from({ length: count }, (v, k) => k).map(k => ({
     id: `item-${itemsOffset + k}`,
     content: `item ${itemsOffset + k}`

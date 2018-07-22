@@ -22,7 +22,7 @@ class DroppableSection extends React.Component {
                 className={this.getSectionBodyStyle(snapshot)}
               >
                 {this.props.items.map((item, index) => {
-                  return <Item index={index} id={item.id} />;
+                  return <Item index={index} id={item.id} key={index} />;
                 })}
               </div>
             );
