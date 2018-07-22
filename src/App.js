@@ -5,19 +5,17 @@ import "./App.css";
 import { itemResort } from "./draghelpers";
 
 let itemsOffset = 0;
+let sectionsOffeset = 0;
 
 class App extends React.Component {
   constructor() {
     super();
     const listsOrder = ["items", "selected", "liran"];
-    const sections = listsOrder.reduce(
-      (accumulator, currentList) => {
-        accumulator[currentList] = getSections(2, accumulator.offest);
-        accumulator.offest += 2;
-        return accumulator;
-      },
-      { offest: 0 }
-    );
+    const sections = listsOrder.reduce((accumulator, currentList) => {
+      accumulator[currentList] = getSections(2, sectionsOffeset);
+      sectionsOffeset += 2;
+      return accumulator;
+    }, {});
     this.state = {
       listsOrder,
       ...sections
