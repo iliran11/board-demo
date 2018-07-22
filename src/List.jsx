@@ -46,12 +46,13 @@ class List extends React.Component {
                       className={this.getListClasses(draggableSnapshot)}
                       {...provided.droppableProps}
                     >
-                      {this.props.listSections.map((item, index) => {
+                      {this.props.listSections.map((section, index) => {
                         return (
                           <Section
-                            id={item.id}
-                            content={item.content}
+                            id={section.id}
+                            content={section.content}
                             index={index}
+                            items={section.items}
                           />
                         );
                       })}

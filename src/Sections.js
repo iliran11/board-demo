@@ -1,6 +1,6 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
+import DroppableSection from "./droppableSection";
 class Section extends React.Component {
   getSectionStyle(snapshot) {
     return {
@@ -17,11 +17,19 @@ class Section extends React.Component {
         type={"SECTION"}
       >
         {(provided, snapshot) => (
-          <div ref={provided.innerRef} {...provided.draggableProps} className="section-body">
+          <div
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            className="section-body"
+          >
             <div className="section-draghandle" {...provided.dragHandleProps}>
               dragHandle
             </div>
-            {this.props.content}
+            <DroppableSection
+              items={this.props.items}
+              index={this.props.index}
+              id={this.props.id}
+            />
           </div>
         )}
       </Draggable>

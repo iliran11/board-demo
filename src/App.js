@@ -1,16 +1,18 @@
-import React from 'react';
-import List from './List';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import './App.css'
+import React from "react";
+import List from "./List";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import "./App.css";
+
+let itemsOffset = 0;
 
 class App extends React.Component {
   constructor() {
     super();
-    const listsOrder = ['items', 'selected', 'liran'];
+    const listsOrder = ["items", "selected", "liran"];
     const sections = listsOrder.reduce(
       (accumulator, currentList) => {
-        accumulator[currentList] = getItems(10, accumulator.offest);
-        accumulator.offest += 10;
+        accumulator[currentList] = getSections(2, accumulator.offest);
+        accumulator.offest += 2;
         return accumulator;
       },
       { offest: 0 }
@@ -19,14 +21,13 @@ class App extends React.Component {
       listsOrder,
       ...sections
     };
-    console.log(this.state);
   }
 
   onDragStart = () => {
-    console.log('start drag');
+    console.log("start drag");
   };
   onDragUpdate = () => {
-    console.log('dragging ... ');
+    console.log("dragging ... ");
   };
   onDragEnd = result => {
     // const nextState = { ...this.state };
@@ -52,12 +53,18 @@ class App extends React.Component {
         onDragUpdate={this.onDragUpdate}
         onDragEnd={this.onDragEnd}
       >
-        <Droppable droppableId={'lists-Droppable'} type="LIST">
+        <Droppable droppableId={"lists-Droppable"} type="LIST">
           {(provided, snapshot) => {
             return (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {this.state.listsOrder.map((listId, index) => {
-                  return <List id={listId} listSections={this.state[listId]} index={index} />;
+                  return (
+                    <List
+                      id={listId}
+                      listSections={this.state[listId]}
+                      index={index}
+                    />
+                  );
                 })}
               </div>
             );
@@ -71,8 +78,17 @@ class App extends React.Component {
 
 export default App;
 
-const getItems = (count, offset = 0, type) =>
+const getItems = (count = 0) => {
+  itemsOffset += 10;
+  console.log(itemsOffset);
+  return Array.from({ length: count }, (v, k) => k).map(k => ({
+    id: `item-${itemsOffset + k}`,
+    content: `item ${itemsOffset + k}`
+  }));
+};
+const getSections = (count, offset = 0, type) =>
   Array.from({ length: count }, (v, k) => k).map(k => ({
-    id: `item-${k + offset}`,
-    content: `item ${k + offset}`
+    id: `section-${k + offset}`,
+    content: `section ${k + offset}`,
+    items: getItems(2)
   }));
