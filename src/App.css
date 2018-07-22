@@ -1,28 +1,44 @@
 .list-drag-handle {
   height: 30px;
   width: 30px;
-  background-color: red;
 }
-
-.list-draghandle {
+.list {
   background-color: #004400;
-  color: #C5F2C5;
+}
+.list-draghandle {
+  color: #c5f2c5;
   transition: all 0.5s;
   padding: 10px;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .list-dranghandle:hover {
   opacity: 0.8;
 }
 .list-draghandle-dragging {
-  opacity:0.8;
+  opacity: 0.8;
 }
 
 .list-body {
-  background-color: #C5F2C5;
   min-height: 200px;
+  width: 90%;
+  margin: auto;
 }
 .list-dragging {
   background-color: #2f4172;
+}
+.section-body {
+  margin: auto;
+  border: 1px solid black;
+}
+.section-body:not(:first-child) {
+  margin-top: 5px;
+}
+.section-draghandle {
+  background-color: #4d072f;
+  color: #f2c5de;
+  padding: 10px;
+}
+.section-body {
+  background-color: #f2c5de;
 }

@@ -25,6 +25,7 @@ class List extends React.Component {
             <div
               {...draggableprovided.draggableProps}
               ref={draggableprovided.innerRef}
+              className="list"
             >
               <div
                 className={this.getDragHandleClasses(draggableSnapshot)}
