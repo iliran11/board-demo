@@ -10,6 +10,8 @@
   transition: all 0.5s;
   padding: 10px;
   margin-top: 10px;
+  opacity:0.8;
+  background-color: #0f7b0f;
 }
 
 /* .list-dranghandle:hover {
@@ -38,10 +40,20 @@
   background-color: #4d072f;
   color: #f2c5de;
   padding: 10px;
+  opacity:0.9;
+  
 }
 .section {
   background-color: #f2c5de;
 }
 .section-body {
   padding: 20px 0px;
+}
+
+.item {
+  height:100px;
+  border: 1px solid black;
+  margin-top: 10px;
+  background-color: #f4b6d8;
+
 }
